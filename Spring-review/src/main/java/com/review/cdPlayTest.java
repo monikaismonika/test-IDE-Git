@@ -28,6 +28,6 @@ public class cdPlayTest {
             assertNotNull(game);
             game.play();
             lenovo.CDPlayer();
-        System.out.println(1111);
+        System.out.println("不许修改");
     }
 }
