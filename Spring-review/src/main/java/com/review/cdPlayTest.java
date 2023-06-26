@@ -28,5 +28,6 @@ public class cdPlayTest {
             assertNotNull(game);
             game.play();
             lenovo.CDPlayer();
+        System.out.println(1111);
     }
 }
