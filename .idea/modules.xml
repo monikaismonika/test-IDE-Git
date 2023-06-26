@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Spring-review/Spring-review.iml" filepath="$PROJECT_DIR$/Spring-review/Spring-review.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter08.iml" filepath="$PROJECT_DIR$/chapter08.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redisTemplate-Test/redisTemplate-Test.iml" filepath="$PROJECT_DIR$/redisTemplate-Test/redisTemplate-Test.iml" />
+    </modules>
+  </component>
+</project>

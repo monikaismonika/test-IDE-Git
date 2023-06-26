@@ -1,0 +1,64 @@
+[2023-06-12 16:09:10.953] [INFO ]com.atguigu.redistemplatetest.RedisTemplateTestApplication36} - Starting RedisTemplateTestApplication using Java 1.8.0_352 on 且安的电脑 with PID 15988 (D:\HanShunPingCode\chapter08\redisTemplate-Test\target\classes started by 18329 in D:\HanShunPingCode\chapter08)
+[2023-06-12 16:09:10.981] [INFO ]com.atguigu.redistemplatetest.RedisTemplateTestApplication36} - No active profile set, falling back to 1 default profile: "default"
+[2023-06-12 16:09:11.627] [INFO ]org.springframework.data.repository.config.RepositoryConfigurationDelegate36} - Multiple Spring Data modules found, entering strict repository configuration mode
+[2023-06-12 16:09:11.630] [INFO ]org.springframework.data.repository.config.RepositoryConfigurationDelegate36} - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2023-06-12 16:09:11.649] [INFO ]org.springframework.data.repository.config.RepositoryConfigurationDelegate36} - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+[2023-06-12 16:09:12.030] [INFO ]org.springframework.boot.web.embedded.tomcat.TomcatWebServer36} - Tomcat initialized with port(s): 8086 (http)
+[2023-06-12 16:09:12.030] [INFO ]org.apache.coyote.http11.Http11NioProtocol36} - Initializing ProtocolHandler ["http-nio-8086"]
+[2023-06-12 16:09:12.046] [INFO ]org.apache.catalina.core.StandardService36} - Starting service [Tomcat]
+[2023-06-12 16:09:12.046] [INFO ]org.apache.catalina.core.StandardEngine36} - Starting Servlet engine: [Apache Tomcat/9.0.75]
+[2023-06-12 16:09:12.189] [INFO ]org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]36} - Initializing Spring embedded WebApplicationContext
+[2023-06-12 16:09:12.189] [INFO ]org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext36} - Root WebApplicationContext: initialization completed in 1170 ms
+[2023-06-12 16:09:12.764] [INFO ]springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping36} - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[2023-06-12 16:09:13.025] [INFO ]org.apache.coyote.http11.Http11NioProtocol36} - Starting ProtocolHandler ["http-nio-8086"]
+[2023-06-12 16:09:13.066] [INFO ]org.springframework.boot.web.embedded.tomcat.TomcatWebServer36} - Tomcat started on port(s): 8086 (http) with context path ''
+[2023-06-12 16:09:13.066] [INFO ]springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper36} - Context refreshed
+[2023-06-12 16:09:13.082] [INFO ]springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper36} - Found 1 custom documentation plugin(s)
+[2023-06-12 16:09:13.109] [INFO ]springfox.documentation.spring.web.scanners.ApiListingReferenceScanner36} - Scanning for api listing references
+[2023-06-12 16:09:13.179] [INFO ]com.atguigu.redistemplatetest.RedisTemplateTestApplication36} - Started RedisTemplateTestApplication in 2.594 seconds (JVM running for 3.689)
+[2023-06-12 16:11:06.328] [INFO ]org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]36} - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-06-12 16:11:06.328] [INFO ]org.springframework.web.servlet.DispatcherServlet36} - Initializing Servlet 'dispatcherServlet'
+[2023-06-12 16:11:06.328] [INFO ]org.springframework.web.servlet.DispatcherServlet36} - Completed initialization in 0 ms
+[2023-06-12 16:11:06.891] [ERROR]org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]36} - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 59.110.143.60:6779] with root cause
+io.lettuce.core.RedisCommandExecutionException: NOAUTH HELLO must be called with the client already authenticated, otherwise the HELLO AUTH <user> <pass> option can be used to authenticate the client and select the RESP protocol version at the same time
+	at io.lettuce.core.internal.ExceptionFactory.createExecutionException(ExceptionFactory.java:147) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
+	at io.lettuce.core.internal.ExceptionFactory.createExecutionException(ExceptionFactory.java:116) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
+	at io.lettuce.core.protocol.AsyncCommand.completeResult(AsyncCommand.java:120) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
+	at io.lettuce.core.protocol.AsyncCommand.complete(AsyncCommand.java:111) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
+	at io.lettuce.core.protocol.CommandHandler.complete(CommandHandler.java:747) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
+	at io.lettuce.core.protocol.CommandHandler.decode(CommandHandler.java:682) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
+	at io.lettuce.core.protocol.CommandHandler.channelRead(CommandHandler.java:599) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442) ~[netty-transport-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) ~[netty-transport-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[netty-transport-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) ~[netty-transport-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166) ~[netty-transport-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788) ~[netty-transport-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_352]
+[2023-06-12 16:19:00.176] [INFO ]com.atguigu.redistemplatetest.RedisTemplateTestApplication36} - Starting RedisTemplateTestApplication using Java 1.8.0_352 on 且安的电脑 with PID 6476 (D:\HanShunPingCode\chapter08\redisTemplate-Test\target\classes started by 18329 in D:\HanShunPingCode\chapter08)
+[2023-06-12 16:19:00.218] [INFO ]com.atguigu.redistemplatetest.RedisTemplateTestApplication36} - No active profile set, falling back to 1 default profile: "default"
+[2023-06-12 16:19:00.873] [INFO ]org.springframework.data.repository.config.RepositoryConfigurationDelegate36} - Multiple Spring Data modules found, entering strict repository configuration mode
+[2023-06-12 16:19:00.873] [INFO ]org.springframework.data.repository.config.RepositoryConfigurationDelegate36} - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2023-06-12 16:19:00.889] [INFO ]org.springframework.data.repository.config.RepositoryConfigurationDelegate36} - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+[2023-06-12 16:19:01.273] [INFO ]org.springframework.boot.web.embedded.tomcat.TomcatWebServer36} - Tomcat initialized with port(s): 8086 (http)
+[2023-06-12 16:19:01.282] [INFO ]org.apache.coyote.http11.Http11NioProtocol36} - Initializing ProtocolHandler ["http-nio-8086"]
+[2023-06-12 16:19:01.282] [INFO ]org.apache.catalina.core.StandardService36} - Starting service [Tomcat]
+[2023-06-12 16:19:01.282] [INFO ]org.apache.catalina.core.StandardEngine36} - Starting Servlet engine: [Apache Tomcat/9.0.75]
+[2023-06-12 16:19:01.386] [INFO ]org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]36} - Initializing Spring embedded WebApplicationContext
+[2023-06-12 16:19:01.386] [INFO ]org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext36} - Root WebApplicationContext: initialization completed in 1123 ms
+[2023-06-12 16:19:01.997] [INFO ]springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping36} - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[2023-06-12 16:19:02.269] [INFO ]org.apache.coyote.http11.Http11NioProtocol36} - Starting ProtocolHandler ["http-nio-8086"]
+[2023-06-12 16:19:02.286] [INFO ]org.springframework.boot.web.embedded.tomcat.TomcatWebServer36} - Tomcat started on port(s): 8086 (http) with context path ''
+[2023-06-12 16:19:02.286] [INFO ]springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper36} - Context refreshed
+[2023-06-12 16:19:02.303] [INFO ]springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper36} - Found 1 custom documentation plugin(s)
+[2023-06-12 16:19:02.319] [INFO ]springfox.documentation.spring.web.scanners.ApiListingReferenceScanner36} - Scanning for api listing references
+[2023-06-12 16:19:02.391] [INFO ]com.atguigu.redistemplatetest.RedisTemplateTestApplication36} - Started RedisTemplateTestApplication in 2.619 seconds (JVM running for 3.777)

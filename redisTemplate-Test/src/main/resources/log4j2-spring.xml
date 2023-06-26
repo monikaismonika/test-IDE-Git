@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- status表示我们的标准日志级别是info，info以上的级别输出，以上的不输出-->
+<!--monitorInterval表示每5秒更新一次日志配置，我们跟改后5秒生效，无需重启-->
+<Configuration monitorInterval="5" >
+
+    <!--定义全局变量，方便调用(日志存放地址)-->
+    <properties>
+        <property name="LOG_HOME">/logs</property>
+    </properties>
+
+    <Appenders>
+
+        <!--   控制台信息的配置     -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="[%style{%d}{bright,green}][%highlight{%p}][%style{%t}{bright,blue}][%style{%C}{bright,yellow}]: %msg%n%style{%throwable}{red}"
+                    disableAnsi="false" noConsoleNoAnsi="false"/>
+        </Console>
+
+        <!--   日志文件的配置     -->
+        <File name="file" fileName="${LOG_HOME]/myfile.log">
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level]%c36} - %m%n"/>
+        </File>
+
+        <!--  日志文件过大时拆分  使用随机读写流，提升性能 -->
+        <RandomAccessFile name="accessFile" fileName="${LOG_HOME]/myAcclog.log">
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level]%c36} - %m%n"/>
+        </RandomAccessFile>
+
+        <!--按照一定规则拆分的日志文件的appender.
+        filePattern内容表示每天都会生成新文件夹，
+        以分钟为单位生成日志
+        -->
+        <RollingFile name="rollingFile" fileName="${LOG_HOME}/myrollog.log"
+                     filePattern="/logs/$${date:yyyy-MM-dd}/myrollog-%d{yyyy-MM-dd-HH-mm}-%i.log">
+
+            <!-- 日志级别过滤器，debug以上输出，生产环境调高！ onMatch表示高于该级别输出 后面的相反-->
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            <!--日志消息格式-->
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level]%c36} - %msg%n"/>
+
+
+            <Policies>
+
+                <!--在每次系统启动时，触发拆规则，生产一个新的日志文件-->
+                <OnStartupTriggeringPolicy />
+
+                <!--按照文件大小拆分，10MB-->
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+
+                <!--按照时间节点拆分，规则根据filePattern定义的-->
+                <TimeBasedTriggeringPolicy />
+
+            </Policies>
+            <!--一在同一个目录下，文件的个数限定为30个，超过进行覆盖！-->
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+    </Appenders>
+
+
+    <!--logger定义-->
+    <Loggers>
+     <!-- 使用rootLogger配置日志级别level:="trace"-->
+    <Root level="info">
+        <!--一指定日志使用的处理器-->
+        <AppenderRef ref="Console"/>
+<!--        <AppenderRef ref="file"/>     输出到文件-->
+    </Root>
+    </Loggers>
+
+</Configuration>
